@@ -29,6 +29,9 @@ class Monitor extends React.Component {
       const stateA = this.state[a.name];
       const stateB = this.state[b.name];
       if (stateA.build === stateB.build) {
+        if (stateB.pull_requests.length === stateA.pull_requests.length) {
+          return a.name < b.name ? -1 : 1;
+        }
         return stateB.pull_requests.length - stateA.pull_requests.length;
       }
       if (this.state[a.name].build === 'failed') {

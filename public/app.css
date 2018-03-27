@@ -311,6 +311,8 @@ body {
   padding: 20px;
   background: #eee;
   position: relative; }
+  .repo h2 {
+    margin: 0 0 10px; }
   .repo a {
     color: black;
     text-decoration: none; }
