@@ -43,8 +43,17 @@ class Monitor extends React.Component {
     });
   }
 
+  updatePageTitle() {
+    if (!this.state) {
+      return;
+    }
+    const prs = this.props.repos.reduce((count, repo) => count += this.state[repo.name].pull_requests.length, 0);
+    document.title = `(${prs}) Build Monitor`;
+  }
+
   render() {
     const repos = this.props.repos || [];
+    this.updatePageTitle();
     return <React.Fragment>
       {
         this.sort(repos).map(repo => {

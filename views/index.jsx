@@ -7,7 +7,7 @@ class Index extends React.Component {
   render() {
     return <html>
       <head>
-        <title>{this.props.title}</title>
+        <title>Build Monitor</title>
         <link rel="stylesheet" href="/public/app.css" />
       </head>
       <body>
