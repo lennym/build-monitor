@@ -37,7 +37,7 @@ class Monitor extends React.Component {
       const statuses = ['failure', 'success', 'pending', 'unknown'];
       const indexA = statuses.indexOf(stateA.build);
       const indexB = statuses.indexOf(stateB.build);
-      return indexB - indexA;
+      return indexA - indexB;
     });
   }
 
