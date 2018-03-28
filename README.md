@@ -4,7 +4,7 @@
 
 Click this button to deploy an instance to
 
-[![./assets/deploy-button.svg]()](https://heroku.com/deploy?template=https://github.com/lennym/build-monitor/tree/master)
+[![](./assets/deploy-button.svg)](https://heroku.com/deploy?template=https://github.com/lennym/build-monitor/tree/master)
 
 Set the following config variables in your heroku app configuration:
 
