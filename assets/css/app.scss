@@ -30,11 +30,15 @@ body {
   }
 
   &.build-success {
-    background: green;
+    background: #00823B;
   }
 
   &.build-failure {
-    background: red;
+    background: #B10E1E;
+  }
+
+  &.build-pending {
+    background: #FFBF47;
   }
 
   .pull-request {

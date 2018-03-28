@@ -34,18 +34,10 @@ class Monitor extends React.Component {
         }
         return stateB.pull_requests.length - stateA.pull_requests.length;
       }
-      if (stateA.build === 'failure') {
-        return -1;
-      }
-      if (stateB.build === 'failure') {
-        return 1;
-      }
-      if (stateA.build === 'unknown') {
-        return 1;
-      }
-      if (stateB.build === 'unknown') {
-        return -1;
-      }
+      const statuses = ['failure', 'success', 'pending', 'unknown'];
+      const indexA = statuses.indexOf(stateA.build);
+      const indexB = statuses.indexOf(stateB.build);
+      return indexB - indexA;
     });
   }
 

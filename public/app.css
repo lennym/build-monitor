@@ -320,9 +320,11 @@ body {
       text-decoration: underline;
       color: blue; }
   .repo.build-success {
-    background: green; }
+    background: #00823B; }
   .repo.build-failure {
-    background: red; }
+    background: #B10E1E; }
+  .repo.build-pending {
+    background: #FFBF47; }
   .repo .pull-request {
     background: #ccc;
     padding: 5px;
