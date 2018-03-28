@@ -9,6 +9,7 @@ class Index extends React.Component {
       <head>
         <title>Build Monitor</title>
         <link rel="stylesheet" href="/public/app.css" />
+        <link id="favicon" rel="shortcut icon" href="/public/favicon-good.ico" />
       </head>
       <body>
         <Monitor repos={this.props.repos}/>

@@ -34,11 +34,17 @@ class Monitor extends React.Component {
         }
         return stateB.pull_requests.length - stateA.pull_requests.length;
       }
-      if (this.state[a.name].build === 'failure') {
+      if (stateA.build === 'failure') {
         return -1;
       }
-      if (this.state[a.name].build === 'unknown') {
+      if (stateB.build === 'failure') {
         return 1;
+      }
+      if (stateA.build === 'unknown') {
+        return 1;
+      }
+      if (stateB.build === 'unknown') {
+        return -1;
       }
     });
   }
@@ -51,9 +57,18 @@ class Monitor extends React.Component {
     document.title = `(${prs}) Build Monitor`;
   }
 
+  updateFavicon() {
+    if (!this.state) {
+      return;
+    }
+    const passed = this.props.repos.reduce((p, repo) => p && this.state[repo.name].build !== 'failure', true);
+    document.getElementById('favicon').setAttribute('href', passed ? '/public/favicon-good.ico' : '/public/favicon-bad.ico');
+  }
+
   render() {
     const repos = this.props.repos || [];
     this.updatePageTitle();
+    this.updateFavicon();
     return <React.Fragment>
       {
         this.sort(repos).map(repo => {
