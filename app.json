@@ -1,0 +1,6 @@
+{
+  "name": "Build Monitor",
+  "description": "A build and PR monitor for teams with private repos",
+  "repository": "https://github.com/lennym/build-monitor",
+  "keywords": ["node", "express", "build-monitor"]
+}
