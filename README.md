@@ -8,7 +8,7 @@ Click this button to deploy an instance to Heroku
 
 Set the following config variables in your Heroku app configuration:
 
-* `GITHUB_TEAM` - the github team you want a build monitor for
+* `GITHUB_TEAM` - the github team you want a build monitor for - as `<org>/<team name>`
 * `GITHUB_TOKEN` - a github access token that has access to the repos
 
 ## What it does
