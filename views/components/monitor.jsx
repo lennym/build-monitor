@@ -34,7 +34,7 @@ class Monitor extends React.Component {
         }
         return stateB.pull_requests.length - stateA.pull_requests.length;
       }
-      const statuses = ['failure', 'success', 'pending', 'unknown'];
+      const statuses = ['failure', 'pending', 'success', 'unknown'];
       const indexA = statuses.indexOf(stateA.build);
       const indexB = statuses.indexOf(stateB.build);
       return indexA - indexB;
