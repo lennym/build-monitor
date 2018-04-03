@@ -21,7 +21,7 @@ class Repo extends React.Component {
       case 'failure':
         return '💩';
     }
-    return '🤷‍♂️';
+    return '🤷';
   }
 
   render() {
