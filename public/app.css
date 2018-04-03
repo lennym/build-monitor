@@ -327,8 +327,9 @@ body {
     background: #FFBF47; }
   .repo .pull-request {
     background: #ccc;
-    padding: 5px;
-    margin: 2px; }
+    padding: 5px 20px 5px 5px;
+    margin: 2px;
+    position: relative; }
     .repo .pull-request > * {
       vertical-align: middle;
       display: inline-block; }
@@ -339,3 +340,7 @@ body {
       height: 30px;
       margin-right: 5px;
       border-radius: 15px; }
+    .repo .pull-request .state {
+      position: absolute;
+      right: 5px;
+      top: 12px; }

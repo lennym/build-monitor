@@ -43,8 +43,9 @@ body {
 
   .pull-request {
     background: #ccc;
-    padding: 5px;
+    padding: 5px 20px 5px 5px;
     margin: 2px;
+    position: relative;
 
     > * {
       vertical-align: middle;
@@ -60,6 +61,12 @@ body {
       height: 30px;
       margin-right: 5px;
       border-radius: 15px;
+    }
+
+    .state {
+      position: absolute;
+      right: 5px;
+      top: 12px;
     }
   }
 

@@ -14,6 +14,16 @@ class Repo extends React.Component {
       .then(data => this.props.onLoad(data));
   }
 
+  state(state) {
+    switch (state) {
+      case 'success':
+        return '👌';
+      case 'failure':
+        return '💩';
+    }
+    return '🤷‍♂️';
+  }
+
   render() {
     const build = this.props.build || 'unknown';
     const classes = ['repo', `build-${build}`];
@@ -25,6 +35,7 @@ class Repo extends React.Component {
           return <p className="pull-request">
             <img src={ pr.user.avatar_url } className="avatar" />
             <a href={ pr.html_url } target="_blank">{ pr.title } ({ moment(pr.created_at).toNow(true) } ago)</a>
+            <span className="state">{ this.state(pr.state) }</span>
           </p>
         })
       }
