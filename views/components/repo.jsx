@@ -10,7 +10,7 @@ class Repo extends React.Component {
   }
 
   load() {
-    request(`/repo/${this.props.name}`).json
+    request(`/repo/${this.props.name}`, { credentials: 'same-origin' }).json
       .then(data => this.props.onLoad(data));
   }
 
