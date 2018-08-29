@@ -17,7 +17,8 @@ class Repo extends React.Component {
         }
         return response.json();
       })
-      .then(data => this.props.onLoad(data));
+      .then(data => this.props.onLoad(data))
+      .catch(e => window.location.reload());
   }
 
   state(state) {
