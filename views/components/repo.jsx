@@ -5,20 +5,19 @@ const moment = require('moment');
 class Repo extends React.Component {
 
   componentDidMount() {
-    setInterval(() => this.load(), 60000);
+    setInterval(() => this.load(), 120000);
     this.load();
   }
 
   load() {
-    request(`/repo/${this.props.name}`, { credentials: 'same-origin' }).response
+    request(`/repo/${this.props.name}`, { credentials: 'same-origin', headers: { Accept: 'application/json' } }).response
       .then(response => {
-        if (response.status !== 200) {
-          window.location.reload();
+        if (response.status === 401) {
+          return window.location.reload();
         }
         return response.json();
       })
-      .then(data => this.props.onLoad(data))
-      .catch(e => window.location.reload());
+      .then(data => this.props.onLoad(data));
   }
 
   state(state) {
