@@ -45,7 +45,9 @@ class Monitor extends React.Component {
     if (!this.state) {
       return;
     }
-    const prs = this.props.repos.reduce((count, repo) => count += this.state[repo.name].pull_requests.length, 0);
+    const prs = this.props.repos.reduce((count, repo) => {
+      return count + this.state[repo.name].pull_requests.filter(pr => !pr.title.includes('WIP')).length;
+    }, 0);
     document.title = `(${prs}) Build Monitor`;
   }
 
