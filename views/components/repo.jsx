@@ -33,9 +33,20 @@ class Repo extends React.Component {
   render() {
     const build = this.props.build || 'unknown';
     const classes = ['repo', `build-${build}`];
-    const prs = (this.props.pull_requests || []).sort((a, b) => {
+    const prs = (this.props.pull_requests || [])
+    .sort((a, b) => {
       return a.created_at < b.created_at ? -1 : 1;
-    });
+    })
+    .reduce((buckets, pr) => {
+      if (pr.title.includes('WIP')) {
+        buckets[1].push(pr);
+      } else {
+        buckets[0].push(pr);
+      }
+      return buckets;
+    }, [[], []])
+    .reduce((list, bucket) => list.concat(bucket), []);
+
     return <div className={classes.join(' ')}>
       <h2><a href={this.props.url} target="_blank">{this.props.name}</a></h2>
       {
