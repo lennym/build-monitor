@@ -298,51 +298,61 @@ template {
   display: none; }
 
 body {
-  font-family: Helvetica, Arial;
+  font-family: Helvetica, Arial; }
+
+.headline {
+  margin: 10px;
+  font-weight: bold;
+  font-size: 10vh; }
+  .headline span {
+    font-size: 16vh; }
+
+.repo-list {
   margin: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 10px;
   grid-row-gap: 10px; }
-
-.repo {
-  grid-column: auto auto;
-  grid-row: auto auto;
-  padding: 20px;
-  background: #eee;
-  position: relative; }
-  .repo h2 {
-    margin: 0 0 10px; }
-  .repo a {
-    color: black;
-    text-decoration: none; }
-    .repo a:hover {
-      text-decoration: underline;
-      color: blue; }
-  .repo.build-success {
-    background: #00823B; }
-  .repo.build-failure {
-    background: #B10E1E; }
-  .repo.build-pending {
-    background: #FFBF47; }
-  .repo .pull-request {
-    background: #ccc;
-    padding: 5px 20px 5px 5px;
-    margin: 2px;
+  .repo-list .repo {
+    grid-column: auto auto;
+    grid-row: auto auto;
+    padding: 10px 20px;
+    background: #eee;
     position: relative; }
-    .repo .pull-request.wip {
-      opacity: 0.7; }
-    .repo .pull-request > * {
-      vertical-align: middle;
-      display: inline-block; }
-    .repo .pull-request a {
-      color: black; }
-    .repo .pull-request .avatar {
-      width: 30px;
-      height: 30px;
-      margin-right: 5px;
-      border-radius: 15px; }
-    .repo .pull-request .state {
-      position: absolute;
-      right: 5px;
-      top: 12px; }
+    .repo-list .repo h2 {
+      margin: 0 0 10px; }
+    .repo-list .repo a {
+      color: black;
+      text-decoration: none; }
+      .repo-list .repo a:hover {
+        text-decoration: underline;
+        color: blue; }
+    .repo-list .repo.build-success {
+      background: #00823B; }
+    .repo-list .repo.build-failure {
+      background: #B10E1E; }
+    .repo-list .repo.build-pending {
+      background: #FFBF47; }
+    .repo-list .repo.no-prs h2 {
+      margin: 0; }
+    .repo-list .repo .pull-request {
+      background: #ccc;
+      padding: 5px 20px 5px 5px;
+      margin: 2px;
+      position: relative; }
+      .repo-list .repo .pull-request.wip {
+        opacity: 0.7; }
+      .repo-list .repo .pull-request > * {
+        vertical-align: middle;
+        display: inline-block; }
+      .repo-list .repo .pull-request a {
+        color: black; }
+      .repo-list .repo .pull-request .avatar {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+        border-radius: 15px; }
+      .repo-list .repo .pull-request .state {
+        position: absolute;
+        right: 5px;
+        top: 12px; }

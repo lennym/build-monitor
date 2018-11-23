@@ -34,20 +34,27 @@ class Monitor extends React.Component {
         }
         return stateB.pull_requests.length - stateA.pull_requests.length;
       }
-      const statuses = ['failure', 'pending', 'success', 'unknown'];
+      const statuses = ['failure', 'success', 'pending', 'unknown'];
       const indexA = statuses.indexOf(stateA.build);
       const indexB = statuses.indexOf(stateB.build);
       return indexA - indexB;
     });
   }
 
+  countPRs() {
+    if (!this.state) {
+      return 0;
+    }
+    return this.props.repos.reduce((count, repo) => {
+      return count + this.state[repo.name].pull_requests.filter(pr => !pr.title.includes('WIP')).length;
+    }, 0);
+  }
+
   updatePageTitle() {
     if (!this.state) {
       return;
     }
-    const prs = this.props.repos.reduce((count, repo) => {
-      return count + this.state[repo.name].pull_requests.filter(pr => !pr.title.includes('WIP')).length;
-    }, 0);
+    const prs = this.countPRs();
     document.title = `(${prs}) Build Monitor`;
   }
 
@@ -63,7 +70,11 @@ class Monitor extends React.Component {
     const repos = this.props.repos || [];
     this.updatePageTitle();
     this.updateFavicon();
+
+    const prs = this.countPRs();
     return <React.Fragment>
+      <div className="headline"><span>{ prs }</span> open PR{ prs === 1 ? ''  : 's'}</div>
+      <div className="repo-list">
       {
         this.sort(repos).map(repo => {
           const state = this.state && this.state[repo.name] ? this.state[repo.name] : {}
@@ -77,6 +88,7 @@ class Monitor extends React.Component {
             />
         })
       }
+      </div>
     </React.Fragment>
   }
 

@@ -47,6 +47,10 @@ class Repo extends React.Component {
     }, [[], []])
     .reduce((list, bucket) => list.concat(bucket), []);
 
+    if (!prs.length) {
+      classes.push('no-prs');
+    }
+
     return <div className={classes.join(' ')}>
       <h2><a href={this.props.url} target="_blank">{this.props.name}</a></h2>
       {
