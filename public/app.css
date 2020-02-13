@@ -332,7 +332,35 @@ body {
     .repo-list .repo.build-failure {
       background: #B10E1E; }
     .repo-list .repo.build-pending {
-      background: #FFBF47; }
+      background: linear-gradient(90deg, #FFDF77, #ECC, #FFDF77, #ECC, #FFDF77, #ECC, #FFDF77, #ECC, #FFDF77);
+      background-size: 400% 100%;
+      -webkit-animation: AnimationName 15s linear infinite;
+      -moz-animation: AnimationName 15s linear infinite;
+      animation: AnimationName 15s linear infinite; }
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 200% 50%; } }
+
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 200% 50%; } }
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 200% 50%; } }
     .repo-list .repo.no-prs h2 {
       margin: 0; }
     .repo-list .repo .pull-request {
