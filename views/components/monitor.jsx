@@ -79,7 +79,8 @@ class Monitor extends React.Component {
         this.sort(repos).map(repo => {
           const state = this.state && this.state[repo.name] ? this.state[repo.name] : {}
           return <Repo
-            name={`${repo.name}${state.legacyDrone ? '*' : ''}`}
+            name={repo.name}
+            label={`${repo.name}${state.legacyDrone ? '*' : ''}`}
             url={repo.html_url}
             build={state.build}
             pull_requests={state.pull_requests}

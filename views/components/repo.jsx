@@ -52,7 +52,7 @@ class Repo extends React.Component {
     }
 
     return <div className={classes.join(' ')}>
-      <h2><a href={this.props.url} target="_blank">{this.props.name}</a></h2>
+      <h2><a href={this.props.url} target="_blank">{this.props.label}</a></h2>
       {
         prs.map(pr => {
           if (pr.title.includes('WIP')) {
