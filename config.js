@@ -1,7 +1,7 @@
 module.exports = {
   port: process.env.PORT || 3000,
   title: process.env_BUILD_MONITOR_TITLE,
-  session: 'asdfasdfasdfa',
+  session: process.env.SESSION_TOKEN,
   url: process.env.REDIRECT_URL || 'http://localhost:3000',
   github: {
     team: process.env.GITHUB_TEAM,
