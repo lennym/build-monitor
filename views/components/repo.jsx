@@ -1,5 +1,4 @@
 const React = require('react');
-const request = require('r2');
 const moment = require('moment');
 
 class Repo extends React.Component {
@@ -10,7 +9,7 @@ class Repo extends React.Component {
   }
 
   load() {
-    request(`/repo/${this.props.name}`, { credentials: 'same-origin', headers: { Accept: 'application/json' } }).response
+    fetch(`/repo/${this.props.name}`, { credentials: 'same-origin', headers: { Accept: 'application/json' } })
       .then(response => {
         if (response.status === 401) {
           return window.location.reload();
@@ -20,7 +19,7 @@ class Repo extends React.Component {
       .then(data => this.props.onLoad(data));
   }
 
-  state(state) {
+  getState(state) {
     switch (state) {
       case 'success':
         return '👌';
@@ -61,7 +60,7 @@ class Repo extends React.Component {
           return <p className={`pull-request ${pr.wip ? 'wip' : ''}`}>
             <img src={ pr.user.avatar_url } className="avatar" />
             <a href={ pr.html_url } target="_blank">{ pr.title } ({ moment(pr.created_at).toNow(true) } ago)</a>
-            <span className="state">{ this.state(pr.state) }</span>
+            <span className="state">{ this.getState(pr.state) }</span>
           </p>
         })
       }
