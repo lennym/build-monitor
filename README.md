@@ -8,8 +8,12 @@ Click this button to deploy an instance to Heroku
 
 Set the following config variables in your Heroku app configuration:
 
+* `GITHUB_CLIENT` - the id of a github OAuth app for users to authenticate with
+* `GITHUB_SECRET` - a secret for the github OAuth app
 * `GITHUB_TEAM` - the github team you want a build monitor for - as `<org>/<team name>`
 * `GITHUB_TOKEN` - a github access token that has access to the repos
+* `REDIRECT_URL` - the root url of the server
+* `SESSION_TOKEN` - a random string used for session encryption
 
 ## What it does
 
